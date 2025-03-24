@@ -1,0 +1,54 @@
+<template>
+    <lightning-card  icon-name="standard:Account">
+        <div if:true={errorMsg} style="margin-left: 3%;">
+            <p style="color: red;">{errorMsg}</p>
+        </div>
+        <template if:true={isSpinner}>
+            <div class="slds-spinner_container slds-is-fixed">
+              <div
+                class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative"
+                role="alert"
+              >
+                <span class="slds-assistive-text">Updating</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+              </div>
+            </div>
+          </template>
+        <lightning-layout multiple-rows="true" vertical-align="end">
+            <lightning-layout-item size="12" small-device-size="10" medium-device-size="8" large-device-size="6" padding="around-small">
+                    <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                    <lightning-input type="text" 
+                                                     label="Enter Account Details" 
+                                                     value={strSearchAccName}
+                                                     onchange={handleAccountName} ></lightning-input>
+                            </div>
+                        </div> 
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="2" medium-device-size="2" large-device-size="2" padding="around-small">
+                    <lightning-button label="Search" 
+                                      variant="brand" 
+                                      onclick={handleSearch}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout><br/>
+
+        <div if:true={searchData}>
+            <lightning-datatable data={searchData} 
+                                 columns={columns} 
+                                 key-field="id"
+                                 onrowaction={handleRowAction}
+                                 row-number-offset={rowOffset}
+                                 hide-checkbox-column="true"></lightning-datatable>
+        </div>
+
+        <!--<lightning-datatable 
+         key-field="id"
+         onrowaction={handleRowAction}
+         row-number-offset={rowOffset}
+         hide-checkbox-column="true"
+         columns={columns}></lightning-datatable>-->
+
+    </lightning-card>
+
+</template>
