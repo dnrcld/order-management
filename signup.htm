@@ -1,11 +1,26 @@
 <template>
-    <div class="slds-box slds-box_x-small slds-m-bottom_small slds-grid slds-text-color_error slds-grid_align-spread font-sz" style="background-color:rgba(186, 5, 23, 0.15);">
-        <div class="slds-col">
-            <lightning-icon icon-name="utility:error" variant="error"></lightning-icon> 
-            <span class="slds-text-color_error slds-m-left_small">{message}</span>
+
+</template>
+<div class="signup-container">
+    <h1>Sign Up</h1>
+    <form onsubmit={handleSignup}>
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required />
         </div>
-        <div class="slds-col">
-            <lightning-icon icon-name="utility:close" variant="error" onclick={handleClose}></lightning-icon> 
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required />
         </div>
-    </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
 </template>
